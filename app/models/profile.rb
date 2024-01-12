@@ -17,5 +17,6 @@
 #  index_profiles_on_user_id  (user_id)
 #
 class Profile < ApplicationRecord
+  enum gender: { mail: 0, femail: 1, other: 2 }
   belongs_to :user
 end

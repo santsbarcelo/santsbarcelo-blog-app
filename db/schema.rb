@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2024_01_13_042312) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 2024_01_13_042312) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "title", null: false
     t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 2024_01_13_042312) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "article_id", null: false
+    t.bigint "article_id", null: false
     t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 2024_01_13_042312) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "article_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_likes_on_article_id"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 2024_01_13_042312) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "nickname"
     t.text "introduction"
     t.integer "gender"

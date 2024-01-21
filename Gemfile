@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'nokogiri', '1.14'
 gem 'net-imap', '< 0.4.9'
 gem 'rake', '13.0.1'
-gem 'concurrent-ruby', '~>1.2.3'
+gem 'concurrent-ruby', '~>1.0.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
